@@ -17,7 +17,7 @@
                 <th>EDIT</th>
                 <th>DELETE</th>
             </tr>
-            <tr>
+            
                 <?php
                   $sql = "select * from students";
                   $query = mysqli_query($connection,$sql);
@@ -27,15 +27,17 @@
                     $lastname = $row['lastname'];
                     $course = $row['course'];
                     $level = $row['level'];
+                    echo "<tr>";
                     echo "<td>$firstname</td>";
                     echo "<td>$lastname</td>";
                     echo "<td>$course</td>";
                     echo "<td>$level</td>";
                     echo "<td><a href='updatestudent.php?s_id={$id}'>EDIT</a></td>";
                     echo "<td><a href='index.php?d_id={$id}'>DELETE</a></td>";
+                    echo "</tr>";
                   }  
                 ?>
-            </tr>
+           
         </table>
         <?php
             if(isset($_GET['d_id'])){
